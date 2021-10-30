@@ -1,0 +1,51 @@
+base = {
+    name: String,
+    price: Number
+}
+
+frosting = {
+    name: String,
+    price: Number
+}
+
+addon = {
+    name: String,
+    price Number
+}
+
+design = {
+    name: String
+}
+
+product = {
+    name: String,
+    type: String,
+    description: String,
+    price: Number
+}
+
+orderitem = {
+    quantity: Number,
+    category: String,
+    (if category is equal to 'product') {
+        product: productSchema
+    },
+    (if category is equal to 'custom') {
+        base: baseSchema,
+        frosting: frostingSchema,
+        addon: addonSchema,
+        design: designSchema
+    },
+    amount: Number
+}
+
+order = {
+    customerName: String,
+    customerEmail: String,
+    ig_link: String,
+    fb_link: String,
+    phone: String,
+    orderitems: orderitemSchema,
+    amount: Number,
+    status: String
+}
